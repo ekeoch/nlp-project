@@ -26,7 +26,9 @@ public class TextFileParser implements Callable<TextFile> {
         }
         bufferedReader.close();
         Pattern pattern1 = Pattern.compile("[A-Z][^.!?]*(?:[.!?](?!['\"]?\\s|$)[^.!?]*)*[.!?]?['\"]?(?=\\s|$)", Pattern.COMMENTS);
-        Pattern pattern2 = Pattern.compile("[a-zA-Z-\\d]+");
+        Pattern pattern2 = Pattern.compile("[a-zA-Z-\\d]+"); //not particularly necessary just added this to capture names with hyphens.
+
+        //For more accurate results more pattern matchers could be added.
 
         Matcher matcher1 = pattern1.matcher(stringBuilder.toString());
         TextFile textFile = new TextFile();
